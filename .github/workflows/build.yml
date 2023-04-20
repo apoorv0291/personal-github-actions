@@ -10,7 +10,7 @@ on:
       - created
 
 jobs:
-  my-first-build:
+  mybuild:
     name: My first build
     runs-on: ubuntu-latest
 
