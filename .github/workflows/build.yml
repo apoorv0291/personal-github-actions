@@ -1,0 +1,28 @@
+name : Build the next app
+
+on:
+  push:
+    branch : [main, develop]
+  pull_request:
+    branch: [main, develop]
+  labels:
+    types:
+      - created
+
+jobs:
+  my-first-build:
+    name: My first build
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        node-version: [12.x,18.x]
+
+    steps:
+        uses: actions/checkout@v3
+      - name: Run next js build in the following
+        uses: actions/setup-node@v2
+        with:
+            node-version: {{matrix.node-version}}  
+        run: npm i
+        run: npm run build             
